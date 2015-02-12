@@ -1,8 +1,19 @@
 function [ y ] = WCHarmoniser( x, Fs )
-%WCHARMONISER Summary of this function goes here
-%   Detailed explanation goes here
+%The Harmoniser for the Warm Chorus algorithm
+%	x: input
+%	y. output
+%	Fs: sampling frequency
 
-y=x;
+f = 1.1;
+T = length(transpose(x))/Fs;
+dt = 1/Fs;
+t = 0:dt:T-dt;
+p1 = 500*(1+sawtooth(2*pi*f*t))/2;
+p2 = 500*(1+sawtooth(2*pi*f*t+pi/2))/2;
+p3 = 500*(1+sawtooth(2*pi*f*t+pi))/2;
+p4 = 500*(1+sawtooth(2*pi*f*t+3*pi/2))/2;
 
+y = loop(x,p1,f,Fs)+loop(x,p2,f,Fs)...
+   +loop(x,p3,f,Fs)+loop(x,p4,f,Fs);
 end
 
