@@ -21,15 +21,16 @@ for col = 2:size(y,2)
 end
 
 %Third stage: Filters. The first and second cols are not filtered.
+Absorptions = [0 0 0.05 0.05 0.07 0.1 0.15 0.2];
 for col = 3:size(y,2)
-    y(:,col) = WCFirstFilter(y(:,col),Fs);
+    y(:,col) = WCFirstFilter(y(:,col),Fs,Absorptions(col));
 end
 
 %Fourth stage: Gain
-%TODO: FIND GOOD VALUES SOMEWHERE
-FourthStageGains = [1 1 1 1 1 1 1 1];
+MeanGains = [0.9 0.8 0.8 0.8 0.7 0.7 0.6 0.6];
+Variances = [0.1 0.1 0.1 0.1 0.14 0.14 0.3 0.3];
 for col = 1:size(y,2)
-    y(:,col) = FourthStageGains(col).*y(:,col);
+    y(:,col) = WCRandRamp(y(:,col),Fs,MeanGains(col),Variances(col));
 end
 
 %Fifth stage: Walsh-Hadamard transform
@@ -49,14 +50,12 @@ end
 %Eighth stage: Another round of filters. The first two cols are not
 %filtered.
 for col = 3:size(y,2)
-    y(:,col) = WCFirstFilter(y(:,col),Fs);
+    y(:,col) = WCFirstFilter(y(:,col),Fs,Absorptions(col));
 end
 
-%Ninth stage: Another round of gain.
-%TODO: FIND GOOD VALUES SOMEWHERE
-NinthStageGains = [1 1 1 1 1 1 1 1];
+%Ninth stage: Another round of ramps.
 for col = 1:size(y,2)
-    y(:,col) = NinthStageGains(col).*y(:,col);
+    y(:,col) = WCRandRamp(y(:,col),Fs,MeanGains(col),Variances(col));
 end
 
 %Summation:
@@ -68,7 +67,7 @@ y = y.*(1/sqrt(8));
 DelayedInput = vertcat(0, x(1:end-1));
 
 %STFT:
-y = WCSTFT(DelayedInput,y,Fs);
+%y = WCSTFT(DelayedInput,y,Fs);
 
 if transposeOutput
     y=y';

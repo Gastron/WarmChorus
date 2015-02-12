@@ -5,9 +5,20 @@ function [ y ] = WCMultiTapDelay( x, num )
 %   x: input
 %   num: number of taps
 %   y: output
+
+%Initalisation:
 y = zeros(length(x),num);
-for tap = 0:num-1
-    y(:,tap+1)= vertcat(zeros(tap, 1), x(1:end-tap));
+%The amounts of delay, these should be found through trial and error:
+delays = [0 primes(100)];
+if length(delays) < num
+    error('More delay taps requested than are currently supported.')
+end
+if length(x) < delays(num)
+    error('With the amount of taps requested, the input signal was not sufficiently long')
+end
+
+for i = 1:num
+    y(:,i)= vertcat(zeros(delays(i), 1), x(1:end-delays(i)));
 end
 
 end
