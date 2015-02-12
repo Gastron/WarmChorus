@@ -4,69 +4,68 @@ function [ y ] = WarmChorus( x, Fs )
 %   Fs: sampling frequency
 %   y: output signal
 
-%Make sure we have a row vector
+%Make sure we have a column vector
 transposeOutput = 0;
-xsize = size(x);
-if xsize(1) > xsize(2)
+if size(x,1) < size(x,2)
     x=x';
     transposeOutput = 1;
 end
 
-%First stage: Multi-tap delay, takes one input and gives out rows of
+%First stage: Multi-tap delay, takes one input and gives out cols of
 %delayed versions.
 y = WCMultiTapDelay(x, 8);
 
-%Second stage: Harmonisers. The first row is not harmonised.
-for row = 2:size(y,1)
-    y(row,:) = WCHarmoniser(y(row),Fs);
+%Second stage: Harmonisers. The first col is not harmonised.
+for col = 2:size(y,2)
+    y(:,col) = WCHarmoniser(y(:,col),Fs);
 end
 
-%Third stage: Filters. The first and second rows are not filtered.
-for row = 3:size(y,1)
-    y(row,:) = WCFirstFilter(y(row),Fs);
+%Third stage: Filters. The first and second cols are not filtered.
+for col = 3:size(y,2)
+    y(:,col) = WCFirstFilter(y(:,col),Fs);
 end
 
 %Fourth stage: Gain
 %TODO: FIND GOOD VALUES SOMEWHERE
 FourthStageGains = [1 1 1 1 1 1 1 1];
-for row = 1:size(y,1)
-    y(row,:) = FourthStageGains(row).*y(row);
+for col = 1:size(y,2)
+    y(:,col) = FourthStageGains(col).*y(:,col);
 end
 
 %Fifth stage: Walsh-Hadamard transform
 y = WCWalshHadamard(y);
 
-%Sixth stage: Delays. The first row is not delayed
-for row = 2:size(y,1)
-    y(row,:) = [0 y(row,1:end-1)];
+%Sixth stage: Delays. The first col is not delayed
+for col = 2:size(y,2)
+    y(:,col) = vertcat(0, y(1:end-1,col));
 end
 
-%Seventh stage: Another round of harmonisers. The first row is not
+%Seventh stage: Another round of harmonisers. The first col is not
 %harmonised.
-for row = 2:size(y,1)
-    y(row,:) = WCHarmoniser(y(row),Fs);
+for col = 2:size(y,2)
+    y(:,col) = WCHarmoniser(y(:,col),Fs);
 end
 
-%Eighth stage: Another round of filters. The first two rows are not
+%Eighth stage: Another round of filters. The first two cols are not
 %filtered.
-for row = 3:size(y,1)
-    y(row,:) = WCFirstFilter(y(row),Fs);
+for col = 3:size(y,2)
+    y(:,col) = WCFirstFilter(y(:,col),Fs);
 end
 
 %Ninth stage: Another round of gain.
 %TODO: FIND GOOD VALUES SOMEWHERE
 NinthStageGains = [1 1 1 1 1 1 1 1];
-for row = 1:size(y,1)
-    y(row,:) = NinthStageGains(row).*y(row);
+for col = 1:size(y,2)
+    y(:,col) = NinthStageGains(col).*y(:,col);
 end
 
 %Summation:
-y = sum(y,1);
+y = sum(y,2);
 %Normalisation:
 y = y.*(1/sqrt(8));
 
 %The dry, delayed path:
-DelayedInput = [0 x(1:end-1)];
+DelayedInput = vertcat(0, x(1:end-1));
 
 %STFT:
 y = WCSTFT(DelayedInput,y,Fs);
@@ -74,5 +73,6 @@ y = WCSTFT(DelayedInput,y,Fs);
 if transposeOutput
     y=y';
 end
+y=y./max(abs(y));
 end
 

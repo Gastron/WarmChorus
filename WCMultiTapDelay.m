@@ -5,9 +5,9 @@ function [ y ] = WCMultiTapDelay( x, num )
 %   x: input
 %   num: number of taps
 %   y: output
-y = zeros(num,length(x));
+y = zeros(length(x),num);
 for tap = 0:num-1
-    y(tap+1,:)=[zeros(1, tap) x(1:end-tap)];
+    y(:,tap+1)= vertcat(zeros(tap, 1), x(1:end-tap));
 end
 
 end

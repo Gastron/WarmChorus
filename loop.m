@@ -17,11 +17,10 @@ for n = 2:length(input)
     if abs(phasor(n) - phasor(n-1)) > 450
         
         r = 50*abs(rand(1));
-        
         if n - winlen > 0
             out(n-winlen:n-1) = out(n-winlen:n-1).*w;
         else
-            out(1:n-1) = out(1:n-1).*hann(n-1);
+            out(1:n-1) = out(1:n-1).*(hann(n-1));
         end;
         
         if n + winlen > length(input)  
