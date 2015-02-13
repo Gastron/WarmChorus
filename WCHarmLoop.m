@@ -1,7 +1,7 @@
 function out = WCHarmLoop(input, phasor,f, fs)
 
 out = zeros(size(input));
-r = 50*abs(rand(1));
+r = abs(rand(1));
 
 winlen = round(fs/(f));
 w = hann(winlen);
@@ -14,7 +14,7 @@ for n = 2:length(input)
         out(n) = (1-frac)* input(n-d1)+ frac *input(n-d1-1);
     end;
     
-    if abs(phasor(n) - phasor(n-1)) > 450
+    if abs(phasor(n) - phasor(n-1)) > 0.9
         
         r = 50*abs(rand(1));
         if n - winlen > 0
