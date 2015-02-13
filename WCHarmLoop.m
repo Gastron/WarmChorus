@@ -5,18 +5,19 @@ r = abs(rand(1));
 
 winlen = round(fs/(f));
 w = hann(winlen);
+last = length(input);
 
 for n = 2:length(input)
     
     if n-floor(phasor(n)+r) >= 2
         d1 = floor(phasor(n)+r);
         frac = phasor(n)+r- d1;
-        out(n) = (1-frac)* input(n-d1)+ frac *input(n-d1-1);
+        out(n) = (1-frac)* input(n-d1)+ (frac)* input(n-d1-1);
     end;
     
     if abs(phasor(n) - phasor(n-1)) > 0.9
         
-        r = 50*abs(rand(1));
+        r = abs(rand(1));
         if n - winlen > 0
             out(n-winlen:n-1) = out(n-winlen:n-1).*w;
         else
@@ -24,9 +25,7 @@ for n = 2:length(input)
         end;
         
         if n + winlen > length(input)  
-            last = n;
-            
-            
+            last = n;   
         end;
     end;
 end;
