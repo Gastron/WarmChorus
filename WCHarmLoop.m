@@ -1,4 +1,4 @@
-function out = loop(input, phasor,f, fs)
+function out = WCHarmLoop(input, phasor,f, fs)
 
 out = zeros(size(input));
 r = 50*abs(rand(1));
