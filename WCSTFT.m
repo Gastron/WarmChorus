@@ -5,12 +5,13 @@ function [ Y ] = WCSTFT( x, Fs )
 %   Fs: sampling frequency
 
 %Initial parameters:
-hopsize = round(0.01*Fs); %10ms, 441 samples for Fs = 44100Hz
-winlen = 4*2^nextpow2(hopsize);
-window = hann(winlen);
+[window, winlen, hopsize] = WCWindowDesign(Fs);
 xindex = 1;
 yindex = 1;
 Y=zeros(winlen,1);
+
+%X should have a half window length buffer of zeros:
+x = vertcat(zeros(round(winlen/2),1), x);
 
 while xindex < length(x)
     if xindex + winlen < length(x)

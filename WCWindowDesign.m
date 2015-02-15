@@ -8,12 +8,12 @@ function [ window, winlen, hopsize ] = WCWindowDesign( Fs )
 %   give a constant summation.
 %   Fs: sampling frequency
 
-
-
-%The initial thinking is: 10ms hopsize.
-hopsize = round(0.01*Fs); 
-
-
+%A basic power of two length:
+winlen = 1024;
+%Hanning window needs 50% overlap:
+hopsize = winlen/2;
+%Periodic window type is preferred for FFT:
+window = hann(winlen,'symmetric');
 
 end
 
