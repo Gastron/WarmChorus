@@ -13,7 +13,7 @@ winlen = 1024;
 %Hanning window needs 50% overlap:
 hopsize = winlen/2;
 %Periodic window type is preferred for FFT:
-window = hann(winlen,'symmetric');
+window = hann(winlen,'periodic');
 
 end
 
