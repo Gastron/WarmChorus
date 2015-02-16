@@ -1,15 +1,16 @@
-function [ y ] = WCMultiTapDelay( x, num )
+function [ y ] = WCMultiTapDelay( x, delays )
 %WCMULTITAPDELAY Returns given number of delayed rows
 %   The outputs all have the same length, i.e. the vectors are truncated.
-%   The outputs are delayed buy adding zeros.
+%   The outputs are delayed by adding zeros.
 %   x: input
 %   num: number of taps
 %   y: output
 
 %Initalisation:
+num = length(delays);
 y = zeros(length(x),num);
 %The amounts of delay.
-delays = [0 WCM2S(1) WCM2S(1.5) WCM2S(3.1) WCM2S(3.6) WCM2S(6) WCM2S(6.3) WCM2S(7)];
+
 if length(delays) < num
     error('More delay taps requested than are currently supported.')
 end

@@ -17,6 +17,8 @@ soundsc(out, fs)
 
 [sig, Fs] = audioread('Track22.wav');
 x = sig(5*Fs:10*Fs);
+%y = WarmChorus(x,Fs);
 X = WCSTFT(x,Fs);
-y = WCISTFT(X,Fs);
+Y = WCPhaseLock(X);
+y = WCISTFT(Y,Fs);
 
