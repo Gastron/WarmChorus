@@ -12,3 +12,11 @@ output = output./max(abs(output));
 
 out = [clip; output];
 soundsc(out, fs)
+
+%% Aku's tests
+
+[sig, Fs] = audioread('Track22.wav');
+x = sig(5*Fs:10*Fs);
+X = WCSTFT(x,Fs);
+y = WCISTFT(X,Fs);
+

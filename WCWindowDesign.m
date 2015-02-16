@@ -5,7 +5,7 @@ function [ window, winlen, hopsize ] = WCWindowDesign( Fs )
 %   window: the actual window vector
 %   winlen: the length of the window, given for convenience
 %   hopsize: the amount of samples that the window has to be shifted to
-%   give a constant summation.
+%   give a constant ssummation.
 %   Fs: sampling frequency
 
 %A basic power of two length:

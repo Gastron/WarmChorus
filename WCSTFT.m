@@ -10,8 +10,8 @@ xindex = 1;
 yindex = 1;
 Y=zeros(winlen,1);
 
-%X should have a half window length buffer of zeros:
-x = vertcat(zeros(round(winlen/2),1), x);
+%X should have a hopsize length buffer of zeros:
+x = vertcat(zeros(hopsize,1), x);
 
 while xindex < length(x)
     if xindex + winlen < length(x)

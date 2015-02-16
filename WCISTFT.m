@@ -4,14 +4,15 @@ function [ y ] = WCISTFT( X, Fs )
 %   y: output
 %   Fs: sampling frequency
 
-[window, winlen, hopsize] = WCWindowDesign(Fs);
-y = zeros(hopsize*size(X,2)+winlen,1);
+%We only really need the winlen and hopsize:
+[ window, winlen, hopsize ] = WCWindowDesign( Fs );
 
-for index= 1:size(X,2)
+y = zeros(hopsize*size(X,2)+hopsize,1);
+for index = 1:size(X,2)
     y(1+(index-1)*hopsize:winlen+(index-1)*hopsize,1) = ...
-        y(1+(index-1)*hopsize:winlen+(index-1)*hopsize,1) + window.*ifft(X(:,index),winlen);
+        y(1+(index-1)*hopsize:winlen+(index-1)*hopsize,1) + ifft(X(:,index),winlen);
 end
-
+y=y(hopsize:end-hopsize);
 
 
 end
