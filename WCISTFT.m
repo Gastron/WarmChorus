@@ -4,7 +4,8 @@ function [ y ] = WCISTFT( X, Fs )
 %   y: output
 %   Fs: sampling frequency
 
-%We only really need the winlen and hopsize:
+%We only really need the winlen and hopsize since the windowing was already
+%done in the STFT:
 [ window, winlen, hopsize ] = WCWindowDesign( Fs );
 
 y = zeros(hopsize*size(X,2)+hopsize,1);
