@@ -8,8 +8,8 @@ function [ y ] = WCMultiTapDelay( x, num )
 
 %Initalisation:
 y = zeros(length(x),num);
-%The amounts of delay, these should be found through trial and error:
-delays = [0 primes(100)];
+%The amounts of delay.
+delays = [0 WCM2S(1) WCM2S(1.5) WCM2S(3.1) WCM2S(3.6) WCM2S(6) WCM2S(6.3) WCM2S(7)];
 if length(delays) < num
     error('More delay taps requested than are currently supported.')
 end
