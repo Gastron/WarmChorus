@@ -12,8 +12,9 @@ function [ window, winlen, hopsize ] = WCWindowDesign( Fs )
 winlen = 1024;
 %Hanning window needs 50% overlap:
 hopsize = winlen/2;
-%Periodic window type is preferred for FFT:
-window = hann(winlen,'periodic');
+%Periodic window type is preferred for FFT. We use a square root Hanning
+%window, as it is applied both at at forward and the inverse transforms.
+window = sqrt(hann(winlen,'periodic'));
 
 end
 

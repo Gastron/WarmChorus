@@ -14,11 +14,12 @@ out = [clip; output];
 soundsc(out, fs)
 
 %% Aku's tests
-
+clear
 [sig, Fs] = audioread('Track22.wav');
 x = sig(5*Fs:10*Fs);
+%x = sin(2*pi*300/Fs*(1:5*Fs))';
 %y = WarmChorus(x,Fs);
-X = WCSTFT(x,Fs);
+[X,zeroPad] = WCSTFT(x,Fs);
 Y = WCPhaseLock(X);
-y = WCISTFT(Y,Fs);
+y = WCISTFT(Y,Fs,zeroPad);
 

@@ -1,4 +1,4 @@
-function [ Y ] = WCSTFT( x, Fs )
+function [ Y, zeroPad ] = WCSTFT( x, Fs )
 %WCSTFT Implements the Short time Fourier transform
 %   x: input
 %   Y: output matrix, where the columns are ffts of windows.
@@ -9,9 +9,10 @@ function [ Y ] = WCSTFT( x, Fs )
 xindex = 1;
 yindex = 1;
 Y=zeros(winlen,1);
+zeroPad = 0;
 
-%x should have a hopsize length buffer of zeros:
-x = vertcat(zeros(hopsize,1), x);
+%x should have a buffer of zeros:
+x = [zeros(winlen,1); x;zeros(winlen,1)];
 
 while xindex < length(x)
     if xindex + winlen < length(x)
@@ -19,8 +20,9 @@ while xindex < length(x)
     else
         %The last frame is padded with zeros if the length of x is not a 
         %multiple of winlen:
+        zeroPad = winlen-length(x(xindex:end));
         windowed = window.*vertcat(x(xindex:end),...
-            zeros( winlen-length(x(xindex:end)) ,1) );
+            zeros( zeroPad ,1) );
     end
     Y(:,yindex) = fft(windowed,winlen);
     yindex = yindex+1;
