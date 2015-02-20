@@ -7,14 +7,14 @@ function [ y ] = WCHarmoniser( x, Fs )
 
 %% generating phasor signals:
 
-f = 2; % frequency of phasor function
+f = 20; % frequency of phasor function
 p = zeros(length(x),4); % empty matrix for phasor signals
 
 % constans to help to generate phasor signal:
 T = length(transpose(x))/Fs;
 dt = 1/Fs;
 t = 0:dt:T-dt;
-coef = 200;
+coef = 2;
 
 % genarating sawtooth signals for phasor:
 for k = 1:4

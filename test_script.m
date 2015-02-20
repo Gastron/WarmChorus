@@ -14,7 +14,7 @@ c = c.*tukeywin(s(1,1),0.05);
 % t = 0:dt:T-dt;
 % c =sin(2*pi*f_sin*t)';
 
-output = Harmoniser(c, fs);
+output = WCHarmoniser(c, fs);
 output = output./max(abs(output));
 
 out = [c; output];
