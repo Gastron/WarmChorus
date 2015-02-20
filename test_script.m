@@ -1,14 +1,21 @@
 
 fs = 44100;
 
-sound = audioread('Track22.wav');
-clip = sound(20000:fs*3,:);
-clip = clip./max(abs(clip));
-s = size(clip);
-clip = clip.*tukeywin(s(1,1),0.05);
+track = audioread('Track22.wav');
+c = track(20000:fs*2,:);
+c = c./max(abs(c));
+s = size(c);
+c = c.*tukeywin(s(1,1),0.05);
 
-output = WCHarmoniser(clip, fs);
+
+% f_sin = 440;
+% T = 2;
+% dt = 1/fs;
+% t = 0:dt:T-dt;
+% c =sin(2*pi*f_sin*t)';
+
+output = Harmoniser(c, fs);
 output = output./max(abs(output));
 
-out = [clip; output];
+out = [c; output];
 soundsc(out, fs)
