@@ -12,8 +12,10 @@ if size(x,1) < size(x,2)
 end
 
 %First stage: Multi-tap delay, takes one input and gives out cols of
-%delayed versions.
-y = WCMultiTapDelay(x, 8);
+%delayed versions for each inputted delay.
+delays = [0 WCM2S(1,Fs) WCM2S(1.5,Fs) WCM2S(3.1,Fs) WCM2S(3.6,Fs) ...
+    WCM2S(6,Fs) WCM2S(6.3,Fs) WCM2S(7,Fs)];
+y = WCMultiTapDelay(x, delays);
 
 %Second stage: Harmonisers. The first col is not harmonised.
 for col = 2:size(y,2)
@@ -62,12 +64,16 @@ end
 y = sum(y,2);
 %Normalisation:
 y = y.*(1/sqrt(8));
-
+return
 %The dry, delayed path:
 DelayedInput = vertcat(0, x(1:end-1));
 
 %STFT:
-%y = WCSTFT(DelayedInput,y,Fs);
+Y = WCSTFT(y,Fs);
+X = WCSTFT(x,Fs);
+
+Y = WCPhaseLock(Y);
+y = WCISTFT(Y,Fs);
 
 if transposeOutput
     y=y';
