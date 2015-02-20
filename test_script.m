@@ -29,4 +29,3 @@ x = sig(5*Fs:10*Fs);
 [X,zeroPad] = WCSTFT(x,Fs);
 Y = WCPhaseLock(X);
 y = WCISTFT(Y,Fs,zeroPad);
-
