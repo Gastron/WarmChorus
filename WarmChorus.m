@@ -35,8 +35,8 @@ for col = 1:size(y,2)
     y(:,col) = WCRandRamp(y(:,col),Fs,MeanGains(col),Variances(col));
 end
 
-%Fifth stage: Walsh-Hadamard transform
-y = WCWalshHadamard(y);
+%Fifth stage: Hadamard matrix multiplication for diffusion.
+y = WCHadamard(y);
 
 %Sixth stage: Delays. The first col is not delayed
 for col = 2:size(y,2)
@@ -69,11 +69,11 @@ return
 DelayedInput = vertcat(0, x(1:end-1));
 
 %STFT:
-Y = WCSTFT(y,Fs);
-X = WCSTFT(x,Fs);
+[Y, zeroPady] = WCSTFT(y,Fs);
+%X = WCSTFT(x,Fs);
 
-Y = WCPhaseLock(Y);
-y = WCISTFT(Y,Fs);
+%Y = WCPhaseLock(Y);
+y = WCISTFT(Y,Fs,zeroPady);
 
 if transposeOutput
     y=y';
