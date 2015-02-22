@@ -64,15 +64,13 @@ end
 y = sum(y,2);
 %Normalisation:
 y = y.*(1/sqrt(8));
-return
-%The dry, delayed path:
-DelayedInput = vertcat(0, x(1:end-1));
+
 
 %STFT:
 [Y, zeroPady] = WCSTFT(y,Fs);
-%X = WCSTFT(x,Fs);
+[X, zeroPadx] = WCSTFT(x,Fs);
 
-%Y = WCPhaseLock(Y);
+Y = WCFreqDomainProcess(Y,X);
 y = WCISTFT(Y,Fs,zeroPady);
 
 if transposeOutput
