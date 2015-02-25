@@ -1,4 +1,4 @@
-function [ y ] = WCHarmoniser( x, Fs )
+function [ y ] = WCHarmoniser( x, Fs, detune )
 
 %The Harmoniser for the Warm Chorus
 %	x: input
@@ -7,14 +7,14 @@ function [ y ] = WCHarmoniser( x, Fs )
 
 %% generating phasor signals:
 
-f = 7; % frequency of phasor function
+f = 0.1*(0.1+detune); % frequency of phasor function
 p = zeros(length(x),4); % empty matrix for phasor signals
 
 % constans to help to generate phasor signal:
 T = length(transpose(x))/Fs;
 dt = 1/Fs;
 t = 0:dt:T-dt;
-coef = 7;
+coef = 200*(0.7+detune);
 r = zeros(4,1);
 
 % genarating sawtooth signals for phasor:

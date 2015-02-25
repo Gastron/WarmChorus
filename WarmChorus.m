@@ -18,19 +18,20 @@ delays = [0 WCM2S(1,Fs) WCM2S(1.5,Fs) WCM2S(3.1,Fs) WCM2S(3.6,Fs) ...
 y = WCMultiTapDelay(x, delays);
 
 %Second stage: Harmonisers. The first col is not harmonised.
+detune = [0 0 0.7 1.3 1.5 4.2 5.3 6.1]; 
 for col = 2:size(y,2)
-    y(:,col) = WCHarmoniser(y(:,col),Fs);
+    y(:,col) = WCHarmoniser(y(:,col),Fs,detune(col));
 end
 
 %Third stage: Filters. The first and second cols are not filtered.
-Absorptions = [0 0 0.05 0.05 0.07 0.1 0.15 0.2];
+Absorptions = [0 0 0.03 0.05 0.07 0.07 0.07 0.13];
 for col = 3:size(y,2)
     y(:,col) = WCFirstFilter(y(:,col),Fs,Absorptions(col));
 end
 
 %Fourth stage: Gain
 MeanGains = [0.9 0.8 0.8 0.8 0.7 0.7 0.6 0.6];
-Variances = [0.1 0.1 0.1 0.1 0.14 0.14 0.3 0.3];
+Variances = [0.13 0.2 0.1 0.2 0.25 0.3 0.5 0.6];
 for col = 1:size(y,2)
     y(:,col) = WCRandRamp(y(:,col),Fs,MeanGains(col),Variances(col));
 end
@@ -40,13 +41,13 @@ y = WCHadamard(y);
 
 %Sixth stage: Delays. The first col is not delayed
 for col = 2:size(y,2)
-    y(:,col) = vertcat(0, y(1:end-1,col));
+    y(:,col) = [zeros(delays(col),1); y(1:end-delays(col),col)];
 end
 
 %Seventh stage: Another round of harmonisers. The first col is not
 %harmonised.
 for col = 2:size(y,2)
-    y(:,col) = WCHarmoniser(y(:,col),Fs);
+    y(:,col) = WCHarmoniser(y(:,col),Fs,detune(col));
 end
 
 %Eighth stage: Another round of filters. The first two cols are not

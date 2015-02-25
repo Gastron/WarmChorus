@@ -25,11 +25,11 @@ soundsc(out, fs)
 
 %% Aku's tests
 
-[sig, Fs] = audioread('Track22.wav');
-x = sig(20000:8*Fs); 
+[sig, Fs] = audioread('ElectricFields.wav');
+x = sig(60*Fs:90*Fs); 
 [X,zeroPad] = WCSTFT(x,Fs);
 %x = sin(2*pi*300/Fs*(1:5*Fs))';
-%y = WarmChorus(x,Fs);
+y = WarmChorus(x,Fs);
 %[X,zeroPad] = stft(x,1024,512,Fs);
-Y = WCFreqDomainProcess(X,X);
-y = WCISTFT(Y,Fs,zeroPad);
+%Y = WCFreqDomainProcess(X,X);
+%y = WCISTFT(Y,Fs,zeroPad);
