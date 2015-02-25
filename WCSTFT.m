@@ -14,8 +14,8 @@ zeroPad = 0;
 %x should have a buffer of zeros:
 x = [zeros(winlen,1); x;zeros(winlen,1)];
 
-while xindex < length(x)
-    if xindex + winlen < length(x)
+while xindex <= length(x)
+    if xindex + winlen <= length(x)
         windowed = window.*x(xindex:xindex-1+winlen);
     else
         %The last frame is padded with zeros if the length of x is not a 
