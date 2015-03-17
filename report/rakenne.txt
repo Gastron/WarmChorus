@@ -1,0 +1,22 @@
+Abstract
+
+1. Intro/Motivation
+
+2. Theory:
+	2.1 Generic Chorus (N)
+	2.2 Orchestral section modeling (N)
+
+3. Implementation
+	<Kuva rakenteesta>
+	3.1 Harmoniser (N)
+		<Kuva harmoniserista>
+	3.2 Temporal processing (A)
+	3.3 Frequency domain processing (A)
+	3.4 Structure (A)
+
+4. Results
+	<Spectrogrammit ennen ja jälkeen?>
+	4.1 
+	4.2 Limitations (A)
+
+5. Conclusion
