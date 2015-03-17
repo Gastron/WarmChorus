@@ -1,0 +1,242 @@
+% Seminar work LaTeX-template for use in seminars in acoustics.
+% Thanks go to Jussi Pekonen for editing and updating this template.
+
+% Preferably use a combination of PdfTex and BibTex to compile. This
+% can be done easily with a prepared package. Google is your help in
+% this case.
+
+% You can modify some things and add packages if you prefer. This setup,
+% however, should be enough for most seminar papers. This has been tested
+% with current version TeXLive-package (2010), which you should probably 
+% use (MacTeX and MikTeX use it). If you do not want to use it, then
+
+%
+% Tapani Pihlajamäki 17.1.2011
+
+% Set document class and encoding
+\documentclass[11pt,a4paper,twoside]{article}
+\usepackage[T1]{fontenc}
+
+% Unicode input encoding
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+
+% Language. Change to finnish if you write in finnish (or use both)
+\usepackage[english]{babel}
+
+
+% Microtype makes the text really neat.
+\usepackage{microtype}
+
+% Graphics package
+\usepackage[pdftex]{graphicx}
+
+% Package enabling subfigures. This means that you can use figures
+% with automatic "numbering" and referencing.
+\usepackage{subfigure}
+
+% Extended equation and symbol functionality
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+
+% New fonts based on Aalto
+\usepackage{fouriernc}
+\usepackage[scaled]{helvet}
+\renewcommand*\ttdefault{txtt}
+%\usepackage{inconsolata}
+\usepackage{tgheros}
+
+% NatBib load. Check NatBib reference with Google if you want to know more
+% about its options. In short, it is possible to modify almost everything
+% about the citation style.
+\usepackage[round]{natbib}
+
+% Acoustics style file.
+\usepackage{akuseminar}
+
+% Formatting for captions.
+\usepackage[hang,bf]{caption}
+
+
+
+% Path of graphics files. By default root and figures directory are used.
+\graphicspath{{./}{figures/}}
+
+% PDF setup. Generally there should not be any need to change these.
+\usepackage[pdftex]{thumbpdf}
+\usepackage[pdftex,bookmarks=true,bookmarksnumbered=true,hypertexnames=false,%
+  breaklinks=true,linkbordercolor={0 0 0},bookmarksopen=true,%
+  hyperfigures=false,colorlinks=true,urlcolor=blue,linkcolor=black,%
+  citecolor=black]{hyperref}
+
+% Set stuff for autoref
+\addto\extrasenglish{%  
+	\def\figureautorefname{Fig.}
+	\def\subfigureautorefname{Fig.}
+	\def\tableautorefname{Table}
+	\def\equationautorefname{Eq.}
+	\def\AMSautorefname{Eq.}
+	\def\sectionautorefname{section}
+	\def\subsectionautorefname{section}
+	\def\subsubsectionautorefname{section}
+}
+
+% TikZ and pgf plots enable drawing of graphics in TeX. A neat way of producing
+% block diagrams and figures, which have the same text formatting as the other
+% text. However, this is not mandatory. Comment them in if you want to use them.
+%\usepackage{tikz}
+%\usepackage{pgfplots}
+
+
+% Booktabs packages enables a better looking tables, which use less lines and
+% more spacing. This is almost standard way of doing tables in text books.
+\usepackage{booktabs}
+
+
+
+
+
+
+
+
+% Paper information. Change these to your own information.
+
+% Change these
+\title{Interactive Representations of Music in Digital Audio Workstations -- Sample version}
+\author{Tapani Pihlajamäki, Jussi Pekonen}
+\address{Aalto University School of Electrical Engineering\\
+Department of Signal Processing and Acoustics}
+\email{tapani.pihlajamaki@aalto.fi}
+
+% These set the properties of the created pdf file.
+\hypersetup{%
+  pdftitle = {Interactive Representations of Music in Digital Audio Workstations -- Sample version},
+  pdfsubject = {Audio Signal Processing Seminar Paper},
+  pdfkeywords = {Music representation, Digital audio workstation, Interactive music},
+  pdfauthor = {Tapani Pihlajamäki, Jussi Pekonen},
+  pdfcreator = {pdf\LaTeX\ using package \flqq hyperref\frqq},
+  pdfproducer = {pdf\LaTeX},
+}
+
+\pagestyle{plain}
+
+%%%%%%%%%%
+% Document
+%%%%%%%%%%
+\begin{document}
+
+% Create the title based information set above.
+\maketitle
+
+% Abstract. Remember that abstract should include the key points of the
+% whole article
+\begin{abstract}
+\noindent\it The Abstract
+\end{abstract}
+
+% Keywords, optional. Comment if not needed.
+\noindent\textbf{Keywords} --- Keyword 1, keyword 2
+
+% Introduction
+\section{Introduction}
+
+Introduction text.
+
+% Section 2
+\section{Section 2}
+\label{sec:section2} % label for refencing
+
+Figures are done with following technique.
+
+\begin{figure}[htb] % Begin figure environment. You can use parameters to affect the positioning of the figure.
+\begin{center} % Use center if you want to center the figure (generally preferred)
+\includegraphics{exfig}
+\caption{This is the caption for text}
+\label{fig:figure1} % label for referencing
+\end{center}
+\end{figure}
+
+
+\begin{figure}[htb] 
+\begin{center} 
+\subfigure[caption]{
+\includegraphics[width=60mm]{exfig} % You can scale figures with various ways.
+\label{fig:figure2a}
+}
+\subfigure[]{
+\includegraphics[width=60mm]{exfig}
+}
+\caption{You can reference subfigures also in captions. For example figure \ref{fig:figure2a}}
+\label{fig:figure2} % label for referencing
+\end{center}
+\end{figure}
+
+
+
+
+
+% Subsection 2.1
+\subsection{Subsection 2.1}
+
+Subsection text.
+
+
+\section{Citations and referencing}
+
+There are two types of citations. "Normal" is this \citep{Tarot1986}. You can also do a citation where you use the writers as a part of the text like this: This was done by \citet{Tarot1986}.
+
+References can be done to labels. This includes for example sections, figures, subfigures and tables. Here is an example. Reference to \autoref{sec:section2}, to figure (see \autoref{fig:figure1}) and subfigure (see \autoref{fig:figure2a}).
+
+You can use url links. Mostly they are useful in references but you can also use them in text. For example \url{www.google.com} is your friend.
+
+\section{Tables}
+
+Tables are done like this (check the code). You can also reference them. Check \autoref{tab:table1}.
+
+% Here is an example of a table
+\begin{table}[htd]
+\caption{Table caption is here}
+\begin{center}
+\begin{tabular}{ccrl}		% definition for a one row of data
+\toprule	% Line for the top of the table
+cell 1 & cell 2 & cell 3 & cell 4\\	% one row of data
+\midrule	% Lines in the middle of the table
+5 & 6 & 7 & 8 \\
+9 & 10 & 11 & 12 \\
+\bottomrule	 % Line for the bottom of the table
+\end{tabular}
+\end{center}
+\label{tab:table1}
+\end{table}
+
+
+\section{Long text}
+
+This is a long long text to enable good layout of figures and tables. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long.
+
+
+% Conclusions
+\section{Conclusions}
+
+Conclusions text.
+
+% References. This is done using BibTeX and NatBib package.
+
+% This can be used at the beginning of the seminar to present all references easily.
+% Comment out when ready.
+\nocite{*} 
+ 
+\renewcommand{\refname}{\vspace{-1cm}\normalsize\section{References}}
+
+% Select style for bibliography. Current is following Harvard-style which is usually used
+% in acoustics seminars.
+\bibliographystyle{abbrvnat}
+
+% Reference to bibliography file.
+\bibliography{refs}
+
+
+
+\end{document}
