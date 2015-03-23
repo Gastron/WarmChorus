@@ -1,7 +1,7 @@
-\BOOKMARK [1][]{section.1}{1 Introduction}{}
-\BOOKMARK [1][]{section.2}{2 Section 2}{}
-\BOOKMARK [2][]{subsection.7}{2.1 Subsection 2.1}{section.2}
-\BOOKMARK [1][]{section.8}{3 Citations and referencing}{}
-\BOOKMARK [1][]{section.9}{4 Tables}{}
-\BOOKMARK [1][]{section.11}{5 Long text}{}
-\BOOKMARK [1][]{section.12}{6 Conclusions}{}
+\BOOKMARK [1][]{section.1}{1 Introduction}{}% 1
+\BOOKMARK [1][]{section.2}{2 Theory}{}% 2
+\BOOKMARK [2][]{subsection.3}{2.1 Generic Chorus}{section.2}% 3
+\BOOKMARK [1][]{section.4}{3 Implementation}{}% 4
+\BOOKMARK [2][]{subsection.5}{3.1 Harmonizer}{section.4}% 5
+\BOOKMARK [1][]{section.7}{4 Results}{}% 6
+\BOOKMARK [1][]{section.8}{5 Conclusions}{}% 7

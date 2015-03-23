@@ -51,7 +51,8 @@
 % NatBib load. Check NatBib reference with Google if you want to know more
 % about its options. In short, it is possible to modify almost everything
 % about the citation style.
-\usepackage[round]{natbib}
+%\usepackage[round]{natbib}
+\usepackage{cite}
 
 % Acoustics style file.
 \usepackage{akuseminar}
@@ -104,11 +105,11 @@
 % Paper information. Change these to your own information.
 
 % Change these
-\title{Interactive Representations of Music in Digital Audio Workstations -- Sample version}
-\author{Tapani Pihlajamäki, Jussi Pekonen}
+\title{Warm Chorus -  Demo}
+\author{Aku Rouhe, Niklas Sallinen}
 \address{Aalto University School of Electrical Engineering\\
 Department of Signal Processing and Acoustics}
-\email{tapani.pihlajamaki@aalto.fi}
+\email{niklas.sallinen@aalto.fi}
 
 % These set the properties of the created pdf file.
 \hypersetup{%
@@ -142,101 +143,39 @@ Department of Signal Processing and Acoustics}
 % Introduction
 \section{Introduction}
 
-Introduction text.
+\section{Theory}
+\input{GenericChorus.tex}
 
-% Section 2
-\section{Section 2}
-\label{sec:section2} % label for refencing
+\section{Implementation}
+\input{harmonizer.tex}
 
-Figures are done with following technique.
+\section{Results}
 
-\begin{figure}[htb] % Begin figure environment. You can use parameters to affect the positioning of the figure.
-\begin{center} % Use center if you want to center the figure (generally preferred)
-\includegraphics{exfig}
-\caption{This is the caption for text}
-\label{fig:figure1} % label for referencing
-\end{center}
-\end{figure}
-
-
-\begin{figure}[htb] 
-\begin{center} 
-\subfigure[caption]{
-\includegraphics[width=60mm]{exfig} % You can scale figures with various ways.
-\label{fig:figure2a}
-}
-\subfigure[]{
-\includegraphics[width=60mm]{exfig}
-}
-\caption{You can reference subfigures also in captions. For example figure \ref{fig:figure2a}}
-\label{fig:figure2} % label for referencing
-\end{center}
-\end{figure}
-
-
-
-
-
-% Subsection 2.1
-\subsection{Subsection 2.1}
-
-Subsection text.
-
-
-\section{Citations and referencing}
-
-There are two types of citations. "Normal" is this \citep{Tarot1986}. You can also do a citation where you use the writers as a part of the text like this: This was done by \citet{Tarot1986}.
-
-References can be done to labels. This includes for example sections, figures, subfigures and tables. Here is an example. Reference to \autoref{sec:section2}, to figure (see \autoref{fig:figure1}) and subfigure (see \autoref{fig:figure2a}).
-
-You can use url links. Mostly they are useful in references but you can also use them in text. For example \url{www.google.com} is your friend.
-
-\section{Tables}
-
-Tables are done like this (check the code). You can also reference them. Check \autoref{tab:table1}.
-
-% Here is an example of a table
-\begin{table}[htd]
-\caption{Table caption is here}
-\begin{center}
-\begin{tabular}{ccrl}		% definition for a one row of data
-\toprule	% Line for the top of the table
-cell 1 & cell 2 & cell 3 & cell 4\\	% one row of data
-\midrule	% Lines in the middle of the table
-5 & 6 & 7 & 8 \\
-9 & 10 & 11 & 12 \\
-\bottomrule	 % Line for the bottom of the table
-\end{tabular}
-\end{center}
-\label{tab:table1}
-\end{table}
-
-
-\section{Long text}
-
-This is a long long text to enable good layout of figures and tables. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long. Long text is long and long.
-
-
-% Conclusions
+\clearpage
 \section{Conclusions}
 
 Conclusions text.
+
+
+
 
 % References. This is done using BibTeX and NatBib package.
 
 % This can be used at the beginning of the seminar to present all references easily.
 % Comment out when ready.
-\nocite{*} 
+%\nocite{*} 
  
-\renewcommand{\refname}{\vspace{-1cm}\normalsize\section{References}}
+%\renewcommand{\refname}{\vspace{-1cm}\normalsize\section{References}}
 
 % Select style for bibliography. Current is following Harvard-style which is usually used
 % in acoustics seminars.
-\bibliographystyle{abbrvnat}
+%\bibliographystyle{abbrvnat}
 
 % Reference to bibliography file.
-\bibliography{refs}
-
-
+%\bibliography{refs}
+\clearpage
+\begin{thebibliography}{99}
+\bibitem{dudas} Warm Chorus...
+\end{thebibliography}
 
 \end{document}

@@ -19,8 +19,8 @@ r = zeros(4,1);
 
 % genarating sawtooth signals for phasor:
 for k = 1:4
-    p(:,k) =coef*(1+sawtooth(2*pi*f*t+(k-1).*pi/2))/2;
-    r(k) = coef/3*abs(rand(1)); % random number to get randomization to transpose
+    p(:,k) =coef*(1-sawtooth(2*pi*f*t+(k-1).*pi/2))/2;
+    r(k) = 0.5+0.5*abs(rand(1)); % random number to get randomization to transpose
 end;
 
 
@@ -46,9 +46,9 @@ for n = 2:length(x)
     for k = 1:4
         
         % modulated delay line to transpose the signal:
-        if n-floor(p(n,k)+r(k)) >= 2
+        if n-floor(p(n,k)*r(k)) >= 2
             
-            d = p(n,k)+r(k);     % delay
+            d = p(n,k)*r(k);     % delay
             d_int = floor(d); % integer part of delay
             d_frac = d-d_int; % fractional part of delay 
             
@@ -60,7 +60,7 @@ for n = 2:length(x)
         % windowing:
         if abs(p(n,k) - p(n-1,k)) > coef*0.8 % finding the peaks of phasor
             
-            r(k) = coef/3*abs(rand(1)); % new random for every window
+            r(k) =  0.5+0.5*abs(rand(1)); % new random for every window
             
             if n - winlen > 0 % checking if full window fits
                 y_k(n-winlen:n-1,k) = y_k(n-winlen:n-1,k).*w;
