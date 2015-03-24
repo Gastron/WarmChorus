@@ -1,8 +1,18 @@
 \subsection{Generic Chorus}
 
-Generic chorus algorithm is basd on calcunational motivation. The algorithm has three basic
-fuctions. First it multiplies input signal and delays the copies and then detunes those to create
-the effect of more than on player. That creates beating effect and other unwanted characteristics into
-the sound due to lack of the variance of the parameters used. 
+Generic chorus algorithm is based on simple idea that copies the original sound and then delay
+different copies with different delays and the slightly detune them. The very basic chorus is just
+parallel delay lines wich are modulated with low-frequency oscillator (LFO) to get some detuning.
 
-Industry standard chorus is based on delay line modulated with low-frequency oscillator. 
+Industry standard chorus is is slighly different and even more simple but better sounding. It consist
+of one feedback delay line and one feedforward delay line whose are modulated with LFO as in the 
+case of basic chorus. Block diagram of the industry standard chorus is shwn in the figure \ref{fig_inds}
+\begin{figure}[ht]
+\centering
+\includegraphics[width = 9cm]{industryStd.png}
+\caption{Block diagram of industry standard chorus. \cite{dudas}}
+\label{fig_inds}
+\end{figure} 
+
+Usually in chorus applications the parameters that can be adusted are not real life related.
+Usual parameters are for example modulation depth, modulation speed and feedback gain.
