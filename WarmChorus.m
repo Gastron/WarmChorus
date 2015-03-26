@@ -1,8 +1,11 @@
-function [ y ] = WarmChorus( x, Fs )
+function [ y ] = WarmChorus( x, Fs, dist, skill)
 %WarmChorus implements the warm chorus algorithm
 %   x: input signal
 %   Fs: sampling frequency
 %   y: output signal
+%   skill: skill factor of players ( 0 < skill < inf)
+%   dist:  max distance between players (m)
+
 
 %Make sure we have a column vector
 transposeOutput = 0;
@@ -13,12 +16,12 @@ end
 
 %First stage: Multi-tap delay, takes one input and gives out cols of
 %delayed versions for each inputted delay.
-delays = [0 WCM2S(1,Fs) WCM2S(1.5,Fs) WCM2S(2.1,Fs) WCM2S(2.6,Fs) ...
-    WCM2S(3.6,Fs) WCM2S(3.9,Fs) WCM2S(4.8,Fs)];
+delays = [0 WCM2S(dist/7,Fs) WCM2S(dist/6,Fs) WCM2S(dist/5,Fs)...
+    WCM2S(dist/4,Fs) WCM2S(dist/3,Fs) WCM2S(dist/2,Fs) WCM2S(dist,Fs)];
 y = WCMultiTapDelay(x, delays);
 
 %Second stage: Harmonisers. The first col is not harmonised.
-detune = [0 0 0.7 1.3 1.5 4.2 5.3 6.1]; 
+detune = 1/(0.13+skill).*[0 0 0.7 1.3 1.5 2.1 3.5 4]; 
 for col = 2:size(y,2)
     y(:,col) = WCHarmoniser(y(:,col),Fs,detune(col));
 end
