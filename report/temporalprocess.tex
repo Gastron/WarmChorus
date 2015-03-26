@@ -1,4 +1,13 @@
 \subsection{Temporal processing}
 In addition to the harmoniser stages, the temporal processing includes a multi-tap delay, low-pass filters, random amplitude ramping and a diffusion stage.
 
-The multi-tap delay line simulates the delays between the players. 
+
+The multi-tap delay line simulates the delays between the players caused by the finite speed of sound. We are assuming 340$\frac{m}{s}$. We calculate the delay for the distances of the players, with the distances varying from just over a metre to several metres. The more delayed channels correspond to players at the back of the section. There are infact two delay stages with equal delays. The first simulates the delay for the hearing the section leader, and the second simulates the delay for the sound traveling from the back of the section to the front.
+
+The low-pass filters simulate absorption in the air in a slightly exaggerated manner. They are implemented as simple first-order finite impulse response filters. The more delayed paths are filtered more, since they correspond to sounds which travel over a larger distance.
+
+The random amplitude ramping simulates the dynamic variation which human players do naturally. The randomness helps remove audible periodicity. The amplitude ramping is done with simple gains which go back-and-forth linearly between two values during randomised time intervals. The more delayed paths, which correspond to worse players, have a higher difference between the maximum and minimum gains, but lower overall volume.
+
+The diffusion stage is used to get a fuller sound. It is based on a hadamard matrix, which is often used in feedback delay networks for the same purpose. Here, however, there is no feedback.
+
+Dudas does not relate the diffusion stage to orchestral section modeling. However, we propose the following: since the players hear eachother's pitches all at the same time, they cannot distinguish the one perfectly in-tune reference. The first stage of harmonisers which is then diffused provides the reference pitch, which is already a little ambiguous. Then the second stage of harmonisers is the players' attempt to follow this reference. 
