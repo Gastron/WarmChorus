@@ -1,5 +1,5 @@
 *~
-.DS_STORE
+*.DS_STORE
 test2.m
 *.out
 *.aux
