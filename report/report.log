@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  26 MAR 2015 13:35
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  26 MAR 2015 14:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -826,49 +826,77 @@ LaTeX Font Info:    Try loading font information for T1+qhv on input line 1.
 (/usr/local/texlive/2011/texmf-dist/tex/latex/tex-gyre/t1qhv.fd
 File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 ))
-(./GenericChorus.tex <industryStd.png, id=38, 623.32875pt x 212.795pt>
-File: industryStd.png Graphic file (type png)
+(./GenericChorus.tex
 
-<use industryStd.png>
+LaTeX Warning: Reference `fig:inds' on page 1 undefined on input line 9.
+
+<industryStd.png, id=37, 623.32875pt x 212.795pt>
+File: industryStd.png Graphic file (type png)
+ <use industryStd.png>
 Package pdftex.def Info: industryStd.png used on input line 12.
 (pdftex.def)             Requested size: 256.0748pt x 87.42184pt.
-) (./orchestral.tex [1
+)
+(./orchestral.tex [1
 
 {/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./imp
 lementation.tex
-<Structure.png, id=55, 719.68875pt x 758.835pt>
+<Structure.png, id=53, 719.68875pt x 758.835pt>
 File: Structure.png Graphic file (type png)
  <use Structure.png>
 Package pdftex.def Info: Structure.png used on input line 4.
 (pdftex.def)             Requested size: 256.0748pt x 270.00778pt.
 )
-(./harmonizer.tex [2 <./industryStd.png> <./Structure.png>]
-<harmonizer.png, id=66, 530.73282pt x 430.60875pt>
+(./harmonizer.tex
+
+LaTeX Warning: Reference `fig:harm' on page 2 undefined on input line 6.
+
+[2 <./industryStd.png> <./Structure.png>]
+<harmonizer.png, id=64, 530.73282pt x 430.60875pt>
 File: harmonizer.png Graphic file (type png)
  <use harmonizer.png>
 Package pdftex.def Info: harmonizer.png used on input line 15.
 (pdftex.def)             Requested size: 227.62204pt x 184.6785pt.
 )
-[3 <./harmonizer.png>] [4
+(./results.tex <dry_spec.png, id=68, 676.5275pt x 457.71pt>
+File: dry_spec.png Graphic file (type png)
+ <use dry_spec.png>
+Package pdftex.def Info: dry_spec.png used on input line 5.
+(pdftex.def)             Requested size: 426.79134pt x 288.75693pt.
+
+<effected_spec.png, id=69, 674.52pt x 455.7025pt>
+File: effected_spec.png Graphic file (type png)
+ <use effected_spec.png>
+Package pdftex.def Info: effected_spec.png used on input line 11.
+(pdftex.def)             Requested size: 426.79134pt x 288.3457pt.
+)
+[3 <./harmonizer.png>] [4 <./dry_spec.png (PNG copy)> <./effected_spec.png (PNG
+ copy)>] [5
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 179.
- [5
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 181.
+ [6
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 179.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 181.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 179.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 179.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 181.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 181.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 5F4E38CFF195D15CA35C5D965122FF42;430.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 179.
+(rerunfilecheck)             Checksum: C875B9AC9D5FF69BF91957BC95D2B7E8;430.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 181.
  ) 
 Here is how much of TeX's memory you used:
- 10563 strings out of 493633
- 159430 string characters out of 3143378
+ 10584 strings out of 493633
+ 159742 string characters out of 3143378
  266683 words of memory out of 3000000
- 13544 multiletter control sequences out of 15000+200000
+ 13557 multiletter control sequences out of 15000+200000
  53660 words of font info for 132 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  37i,7n,38p,334b,515s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -879,10 +907,10 @@ mf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2011/texmf-dis
 t/fonts/type1/urw/ncntrsbk/uncb8a.pfb></usr/local/texlive/2011/texmf-dist/fonts
 /type1/urw/ncntrsbk/uncr8a.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/
 urw/ncntrsbk/uncri8a.pfb>
-Output written on report.pdf (5 pages, 154559 bytes).
+Output written on report.pdf (6 pages, 455593 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
- 19 named destinations out of 1000 (max. 500000)
- 24656 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 116 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
+ 22 named destinations out of 1000 (max. 500000)
+ 24666 words of extra memory for PDF output out of 24883 (max. 10000000)
 

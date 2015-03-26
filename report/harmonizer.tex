@@ -3,7 +3,7 @@
 Harmonizer is structure which detunes input signal slightly to get different "players" play
 slightly out of tune as in the real orchestra section. Transpose of the harmonizer is always sharp
 because Dudas\cite{dudas} claimed that sharp notes are percieved less out of tune than flat ones. 
-The block diagram of the harmonizer is shown in figure \ref{fig_harm}
+The block diagram of the harmonizer is shown in figure \ref{fig:harm}
 
 In harmonizer structure there are four channels which are windowed with four sinusoidal windows
 that are 90 degrees more out of phase than previous. To decrease the beating effect that is present
@@ -14,7 +14,7 @@ usually do not play whole music piece in same detuning. \cite{dudas}
 \centering
 \includegraphics[width = 8cm]{harmonizer.png}
 \caption{Chorus Harmonizer Block Diagram. \cite{dudas}}
-\label{fig_harm}
+\label{fig:harm}
 \end{figure}
 
 The detuning is made with multi-tap delay-line which is modulated with phasor signal which is basic sawtooth
