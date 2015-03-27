@@ -28,7 +28,7 @@ for col = 2:size(y,2)
 end
 
 %Third stage: Filters. The first and second cols are not filtered.
-Absorptions = [0 0 0.03 0.05 0.07 0.07 0.07 0.13];
+Absorptions = (0.2*dist).*[0 0 0.03 0.05 0.07 0.07 0.07 0.13];
 for col = 3:size(y,2)
     y(:,col) = WCFirstFilter(y(:,col),Fs,Absorptions(col));
 end
