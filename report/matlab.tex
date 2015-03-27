@@ -1,0 +1,6 @@
+\subsection{Matlab}
+Dudas' algorithm was implemented in Max/MSP, which is capable of real-time audio processing \cite{dudas}. Since our implementation was done in Matlab, it is an offline implementation and most useful as a proof-of-concept and testing implementation.
+
+We decided to use function approach for implementing the different blocks of the algorithm. Each block may be called separately, but the idea is for the user to call the main function, WarmChorus, with the input and parameter values.
+
+For parameters, we decided to use distance in metres and an arbitrary skill parameter. The distance in metres directly affects the delays and air absorption. The skill level controls the detuning in the harmonisers.
