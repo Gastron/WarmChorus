@@ -4,7 +4,7 @@ function [ y ] = WarmChorus( x, Fs, dist, skill)
 %   x: input signal
 %   Fs: sampling frequency
 %   y: output signal
-%   skill: skill factor of players ( 0 < skill < inf)
+%   skill: skill factor of players (0 < skill < inf)(best values: 0.3-1)
 %   dist:  max distance between players (m)
 
 
