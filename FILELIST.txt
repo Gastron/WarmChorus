@@ -1,0 +1,26 @@
+This document lists the Matlab files.
+
+EXAMPLE.m
+	- An example script for the user. Try this first. 
+WarmChorus.m
+	- The main function, WarmChorus(), the one that the user should call.
+WCHarmoniser.m
+	- The most important processing block
+WCFirstFilter.m
+	- A first-order finite impulse response filter.
+WCFreqDomainProcess.m
+	- The frequency domain processing bundled into one function.
+WCHadamard.m
+	- A Hadamard matrix which diffuses the sound.
+WCM2S.m
+	- Converts metres to samples.
+WCMultiTapDelay.m
+	- Returns multiple delayed copies of the signal.
+WCRandRamp.m
+	- Randomly ramps the gain of the signal.
+WCSTFT.m
+	- Implements the short time Fourier transform.
+WCISTFT.m
+	- Implements the inverse short time Fourier transform
+WCWindowDesign.m
+	- An architecht's dream Matlab function: creates a beautiful glass window for a toilet. Just kidding; this is used to make sure we use the same windowing in both the forward and inverse short time Fourier transforms.
