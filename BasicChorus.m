@@ -1,9 +1,10 @@
 function y = BasicChorus(x, Fs)
 
 % This function is industry standart chorus effect
+% Aku Rouhe & Niklas Sallinen
 %
-% x is input signal
-% Fs is samplin frequency
+% x: input signal
+% Fs: sampling frequency
 
 N = 200; % the order of the comb filter
 f = 0.5; % frequency of LFO
@@ -36,3 +37,5 @@ for n = 1:length(x)
        y(n) = a0*x(n);
     end;
 end;
+
+y = y./max(abs(y));
