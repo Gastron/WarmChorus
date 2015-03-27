@@ -1,5 +1,6 @@
 function [ y ] = WCFirstFilter( x, Fs, absorption)
 %WCFIRSTFILTER Implements the first filter in the Warm Chorus algorithm
+% By: Aku Rouhe and Niklas Sallinen
 %   x: input
 %   y: output
 %   Fs: sampling frequency

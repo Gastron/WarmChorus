@@ -1,5 +1,6 @@
 function [ y ] = WarmChorus( x, Fs, dist, skill)
 %WarmChorus implements the warm chorus algorithm
+% By: Aku Rouhe and Niklas Sallinen
 %   x: input signal
 %   Fs: sampling frequency
 %   y: output signal

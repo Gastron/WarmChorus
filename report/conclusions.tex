@@ -1,0 +1,8 @@
+\section{Conclusions}
+We implemented the Warm Chorus algorithm as described by Richard Dudas \cite{dudas}. The Matlab implementation fulfilled its primary goal of sounding better and more importantly more realistic than a generic chorus algorithm. The authors feel that the impression of multiple players, which the algorithm strives to provide, is quite convincing in some cases.
+
+The most interesting part in the algorithm's design is the orchestral section modeling, which motivates most choices in the structure. Dudas hopes to inspire other real-world motivated algorithms \cite{dudas} and we join in this thought.
+
+Dudas goes to great lengths in trying to avoid any periodicity in the output; the harmonisers have random characteristics, the frequency domain processing attempts to remove low-end amplitude modulation, the ratios of the parameters are not simple. This works well in the end: the output has no pulse or beating, which aids in not sounding mechanic.
+
+The primary goal for any musical application of digital signal processing is a pleasing sound. This is goal is shown for example in Dudas' use of frequency domain processing techniques for simply removing phasiness. This step might have been excluded were the aim simply to dogmatically imitate an orchestral section. The goal of a good sounding algorithm is a subjective one. The reader is encouraged to listen to sound samples and try the algorithm for herself.

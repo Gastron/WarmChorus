@@ -1,6 +1,7 @@
 function [ Y ] = WCFreqDomainProcess( X1, X0 )
 %WCFreqDomainProcess Implements the frequency domain processing in Warm
 %Chorus
+% By: Aku Rouhe and Niklas Sallinen
 %   X1: effected STFT matrix
 %   X0: uneffected, original STFT matrix
 %   Y: output STFT
