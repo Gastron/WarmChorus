@@ -1,0 +1,11 @@
+The Matlab files (ending in .m) are licenced under Creative Commons Attribution 4.0 International.
+http://creativecommons.org/licenses/by/4.0/legalcode
+
+
+The sound samples are for sample use and are all under 20 seconds long.
+The guitar samples are our own recordings.
+The violin sample (DRYSAMPLE.wav) was given to us by our instructor, Symeon Delikaris-Manias.
+The music sample is from David Maxim Mimic's track Electric Fields.
+
+
+Aku Rouhe and Niklas Sallinen 2015
