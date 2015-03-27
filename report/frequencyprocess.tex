@@ -1,2 +1,8 @@
 \subsection{Frequency domain processing}
-Blah blah
+At the end of the structure there are some frequency domain processing blocks, as seen in \ref{fig:struct}. For this, first a short-time Fourier transform is taken and after the processing steps the signal is resynthesised via the inverse short time Fourier transform. Before resynthesis, two processing steps are applied to the signal.
+
+First, the phases of the signal are locked by summing phases from adjacent bins.\cite{Puckette} This is done to suppress the so called phasiness of the signal.
+
+Second, the amplitudes of the original signal's frequency bins are used to weigh the effected signal's bin amplitudes. This is not done uniformly, but instead the lower end of the spectrum is weighed more heavily. The weighing is done to get rid of amplitude modulation which is particularly prominent in the low frequency range \cite{dudas}. This is why the lower end of the spectrum is weighed more heavily, too.
+
+Both of the frequency domain processing steps are just ways to polish the sound and get rid of some artifacts; the steps are not meant to add anything new to the signal. As such, they also don't have any physical counterpart.
