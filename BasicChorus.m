@@ -6,12 +6,12 @@ function y = BasicChorus(x, Fs)
 % x: input signal
 % Fs: sampling frequency
 
-N = 200; % the order of the comb filter
-f = 0.5; % frequency of LFO
+N = 300; % the order of the comb filter
+f = 0.3; % frequency of LFO
 y = zeros(size(x));
-b = 0.8; % gain coefficient of IIR comb
+b = 0.6; % gain coefficient of IIR comb
 a0 = 1; % gain coefficient of direct signal
-a1 = 0.8; % gain coefficient of FIR comb
+a1 = 0.7; % gain coefficient of FIR comb
 
 % creating LFO signal:
 
