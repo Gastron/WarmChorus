@@ -22,5 +22,11 @@ violin_warm = WarmChorus(violin, Fs4, distance, skill);
 % Process with BasicChorus
 violin_basic = BasicChorus(violin, Fs4);
 
+% horrible orchestra:
+% distance = 50;
+% skill = 0.1;
+% violin_horrible = WarmChorus(violin, Fs4, distance, skill);
+
 %% Uncomment to listen the examples:
 % soundsc([violin; violin_basic; violin_warm], Fs4);
+% soundsc(violin_horrible, Fs4);
