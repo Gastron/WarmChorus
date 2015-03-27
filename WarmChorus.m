@@ -16,8 +16,8 @@ end
 
 %First stage: Multi-tap delay, takes one input and gives out cols of
 %delayed versions for each inputted delay.
-delays = [0 WCM2S(dist/7,Fs) WCM2S(dist/6,Fs) WCM2S(dist/5,Fs)...
-    WCM2S(dist/4,Fs) WCM2S(dist/3,Fs) WCM2S(dist/2,Fs) WCM2S(dist,Fs)];
+delays = [0 WCM2S(dist/7,Fs) WCM2S(dist*2/7,Fs) WCM2S(dist*3/7,Fs)...
+    WCM2S(dist*4/7,Fs) WCM2S(dist*5/7,Fs) WCM2S(dist*6/7,Fs) WCM2S(dist,Fs)];
 y = WCMultiTapDelay(x, delays);
 
 %Second stage: Harmonisers. The first col is not harmonised.
