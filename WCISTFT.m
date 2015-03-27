@@ -1,5 +1,6 @@
 function [ y ] = WCISTFT( X, Fs, zeroPad )
 %WCISTFT Implements the inverse short time Fourier transform
+% By: Aku Rouhe and Niklas Sallinen
 %   X: input matrix, where columns are ffts of windows
 %   y: output
 %   zeroPad: The amount of zeros added to x at STFT forward transform.

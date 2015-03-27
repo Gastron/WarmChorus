@@ -1,5 +1,6 @@
 function [ y ] = WCMultiTapDelay( x, delays )
 %WCMULTITAPDELAY Returns given number of delayed rows
+% By: Aku Rouhe and Niklas Sallinen
 %   The outputs all have the same length, i.e. the vectors are truncated.
 %   The outputs are delayed by adding zeros.
 %   x: input

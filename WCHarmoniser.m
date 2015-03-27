@@ -1,7 +1,7 @@
 function [ y ] = WCHarmoniser( x, Fs, detune )
-
-% The Harmoniser for the Warm Chorus
-% This function detunes the input signal. 
+%The Harmoniser for the Warm Chorus
+%This function detunes the input signal. 
+% By: Aku Rouhe and Niklas Sallinen
 %
 %	x:      input
 %   detune: amount of detuning and window size

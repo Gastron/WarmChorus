@@ -1,5 +1,6 @@
 function [ Y, zeroPad ] = WCSTFT( x, Fs )
 %WCSTFT Implements the Short time Fourier transform
+% By: Aku Rouhe and Niklas Sallinen
 %   x: input
 %   Y: output matrix, where the columns are ffts of windows.
 %   Fs: sampling frequency

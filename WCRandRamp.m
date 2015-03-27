@@ -1,5 +1,6 @@
 function [ y ] = WCRandRamp( x, Fs, meangain, variance )
 %WCRANDRAMP Implements the slow random ramping
+% By: Aku Rouhe and Niklas Sallinen
 %   x: input
 %   Fs: sampling frequency
 %   meangain: the value above and below which the gain varies

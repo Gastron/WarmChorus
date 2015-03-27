@@ -1,5 +1,6 @@
 function [ window, winlen, hopsize ] = WCWindowDesign( Fs )
 %WCWINDOWDESIGN Designs a window for STFT
+% By: Aku Rouhe and Niklas Sallinen
 %   The window length and hopsize have to be calculated so that the windows
 %   overlap in a way that always adds to one.
 %   window: the actual window vector
